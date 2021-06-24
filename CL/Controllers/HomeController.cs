@@ -64,7 +64,7 @@ namespace CL.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(ContactsPeople user)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) //Проверка условиям ввода
             {
                 db.ContactsPeople.Update(user);
                 await db.SaveChangesAsync();
@@ -81,10 +81,13 @@ namespace CL.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(ContactsPeople user)
         {
-            
-            db.ContactsPeople.Add(user);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid) //Проверка условиям ввода
+            {
+                db.ContactsPeople.Add(user);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(user);
         }
         [HttpGet]
         //Добавление контакта
