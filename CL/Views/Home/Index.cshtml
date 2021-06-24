@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<CL.Models.ContactsPeople>
+@{
+//ViewData["Title"] = "Список контактов";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Список контактов</title>
+</head>
+<body>
+    <h3>Контакты</h3>
+    <form asp-controller="Home" asp-action="Index" method="get">
+        <p>
+            Поиск: <input type="text" name="SearchString" />
+            <input type="submit" value="Найти" />
+        </p>
+    </form>
+    <table>
+        <tr>
+            <td><b> Имя </b></td>
+            <td><b> Фамилия </b></td>
+            <td><b> Отчество </b></td>
+            <td><b> Номер телефона </b></td>
+            <td><b> День рождения </b></td>
+            <td><b> Организация </b></td>
+            <td><b> Должность </b></td>
+            <td><b> Skype </b></td>
+            <td><b> Email </b></td>
+            <td><b> Other </b></td>
+        </tr>
+        @foreach (var contacts in Model)
+        {
+            <tr>
+                <td> @contacts.Name </td>
+                <td> @contacts.Surname </td>
+                <td> @contacts.Middlename </td>
+                <td> @contacts.PhoneNumber </td>
+                <td> @contacts.Birthdate </td>
+                <td> @contacts.Organization </td>
+                <td> @contacts.Post </td>
+                <td> @contacts.Skype </td>
+                <td> @contacts.Email </td>
+                <td> @contacts.Other </td>
+                <td><a href="~/Home/Edit/@contacts.Id">Редактировать</a></td>
+                <td><a href="~/Home/Delete/@contacts.Id">Удалить</a></td>
+            </tr>
+        }
+        @{
+            //Вывод информации на главную страницу
+         }
+    </table>
+</body>
+</html>

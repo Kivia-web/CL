@@ -1,0 +1,68 @@
+﻿
+@model CL.Models.ContactsPeople
+@{
+    ViewBag.Title = "Добавление пользователя";
+}
+<script src="/Scripts/MicrosoftAjax.js" type="text/javascript"></script>
+<script src="/Scripts/MicrosoftMvcValidation.js" type="text/javascript"></script>
+@Html.ValidationSummary(true)
+@using (Html.BeginForm())
+{
+<div class="form-group">
+    @Html.LabelFor(model => model.Name, "Имя")
+    @Html.EditorFor(model => model.Name)
+    @Html.ValidationMessageFor(Model => Model.Name, "", new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Surname, "Фамилия")
+    @Html.EditorFor(model => model.Surname)
+    @Html.ValidationMessageFor(Model => Model.Surname, "", new { @class = "text-danger" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Middlename, "Отчество")
+    @Html.EditorFor(model => model.Middlename)
+    @Html.ValidationMessageFor(Model => Model.Middlename, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.PhoneNumber, "Номер телефона")
+    @Html.EditorFor(model => model.PhoneNumber)
+    @Html.ValidationMessageFor(Model => Model.PhoneNumber, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Birthdate, "Дата рождения")
+    @Html.EditorFor(model => model.Birthdate)
+    @Html.ValidationMessageFor(Model => Model.Birthdate, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Organization, "Организация")
+    @Html.EditorFor(model => model.Organization)
+    @Html.ValidationMessageFor(Model => Model.Organization, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Post, "Должность")
+    @Html.EditorFor(model => model.Post)
+    @Html.ValidationMessageFor(Model => Model.Post, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Email, "E-mail")
+    @Html.EditorFor(model => model.Email)
+    @Html.ValidationMessageFor(Model => Model.Email, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Skype, "Skype")
+    @Html.EditorFor(model => model.Skype)
+    @Html.ValidationMessageFor(Model => Model.Skype, "", new { @class = "text-danger" })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Other, "Прочее")
+    @Html.EditorFor(model => model.Other)
+    @Html.ValidationMessageFor(Model => Model.Other, "", new { @class = "text-danger" })
+</div>
+    <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-default" />
+    </div>
+}
+
+
